@@ -1,0 +1,58 @@
+{
+  "menu": [
+    {
+      "url": "/",
+      "name": "Home",
+      "icon": "menu-icon tf-icons mdi mdi-home-outline",
+      "slug": "pages-home"
+    },
+    {
+      "url": "/page-calendar",
+      "icon": "menu-icon tf-icons mdi mdi-calendar-blank-outline",
+      "name": "Calendar",
+      "slug": "pages-page-calendar"
+    },
+    {
+      "menuHeader": "Academic"
+    },
+    {
+      "url": "/page-class",
+      "name": "My Class",
+      "icon": "menu-icon tf-icons mdi mdi-school-outline",
+      "slug": "pages-page-class"
+    },
+    {
+      "url": "/page-grade",
+      "name": "Grade Report",
+      "icon": "menu-icon tf-icons mdi mdi-chart-box-outline",
+      "slug": "pages-page-grade"
+    },
+    {
+      "url": "/page-assignment",
+      "name": "Assignment",
+      "icon": "menu-icon tf-icons mdi mdi-clipboard-arrow-down-outline",
+      "slug": "pages-page-assignment"
+    },
+    {
+      "url": "/page-attendance",
+      "name": "Attendance",
+      "icon": "menu-icon tf-icons mdi mdi-clock-outline",
+      "slug": "pages-page-attendance"
+    },
+    {
+      "menuHeader": "Setting"
+    },
+    {
+      "url": "/pages/profile",
+      "name": "Profile",
+      "icon": "menu-icon tf-icons mdi mdi-account-outline",
+      "slug": "pages-profile"
+    },
+    {
+      "url": "/pages/logout",
+      "name": "Logout",
+      "icon": "menu-icon tf-icons mdi mdi-exit-to-app",
+      "slug": "pages-logout"
+    }
+  ]
+}
