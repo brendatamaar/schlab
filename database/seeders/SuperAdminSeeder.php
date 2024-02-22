@@ -16,16 +16,16 @@ class SuperAdminSeeder extends Seeder
     public function run(): void
     {
         $superAdmin = Users::create([
-            'first_name' => 'Super Admin',
-            'username' => 'superadmin',
+            'name' => 'Super Admin',
+            // 'username' => 'superadmin',
             'email' => 'superadmin@gmail.com',
             'password' => Hash::make('superadmin')
         ]);
         $superAdmin->assignRole('Super Admin');
 
         $headmaster = Users::create([
-            'first_name' => 'Headmaster',
-            'username' => 'headmaster',
+            'name' => 'Headmaster',
+            // 'username' => 'headmaster',
             'email' => 'headmaster@gmail.com',
             'password' => Hash::make('headmaster')
         ]);
@@ -36,8 +36,8 @@ class SuperAdminSeeder extends Seeder
         $adminProfile = Admins::create(['manager' => 'Donald', 'department' => 'Retail']);
 
         $admin = Users::create([
-            'first_name' => 'Admin',
-            'username' => 'admin',
+            'name' => 'Admin',
+            // 'username' => 'admin',
             'email' => 'admin@gmail.com',
             'password' => Hash::make('admin'),
             'profile_id' => $adminProfile->id,

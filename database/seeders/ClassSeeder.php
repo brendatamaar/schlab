@@ -24,8 +24,8 @@ class ClassSeeder extends Seeder
         ]);
 
         $teacher = Users::create([
-            'first_name' => 'Teacher',
-            'username' => 'teacher',
+            'name' => 'Teacher',
+            // 'username' => 'teacher',
             'email' => 'teacher@gmail.com',
             'password' => Hash::make('teacher')
         ]);
@@ -33,8 +33,8 @@ class ClassSeeder extends Seeder
 
 
         $parent = Users::create([
-            'first_name' => 'Parent',
-            'username' => 'parent',
+            'name' => 'Parent',
+            // 'username' => 'parent',
             'email' => 'parent@gmail.com',
             'password' => Hash::make('parent')
         ]);
@@ -43,8 +43,8 @@ class ClassSeeder extends Seeder
         $studentProfile = Students::create(['class_id' => $class->id, 'parent_id' => $parent->id]);
 
         $student = Users::create([
-            'first_name' => 'Student',
-            'username' => 'student',
+            'name' => 'Student',
+            // 'username' => 'student',
             'email' => 'student@gmail.com',
             'password' => Hash::make('student'),
             'profile_id' => $studentProfile->id,

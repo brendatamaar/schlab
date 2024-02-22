@@ -24,7 +24,6 @@ use App\Http\Controllers\authentications\RegisterBasic;
 */
 
 // Main Page Route
-Route::get('/', [HomePage::class, 'index'])->name('pages-home');
 Route::get('/page-calendar', [CalendarPage::class, 'index'])->name('pages-page-calendar');
 Route::get('/page-class', [ClassPage::class, 'index'])->name('pages-page-class');
 Route::get('/page-grade', [GradePage::class, 'index'])->name('pages-page-grade');
@@ -40,3 +39,7 @@ Route::get('/pages/misc-error', [MiscError::class, 'index'])->name('pages-misc-e
 // authentication
 Route::get('/auth/login-basic', [LoginBasic::class, 'index'])->name('auth-login-basic');
 Route::get('/auth/register-basic', [RegisterBasic::class, 'index'])->name('auth-register-basic');
+
+Route::group(['middleware' => 'auth:sanctum', 'verified'], function () {
+    Route::get('/', [HomePage::class, 'index'])->name('pages-home');
+});

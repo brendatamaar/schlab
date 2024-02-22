@@ -13,10 +13,9 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->ulid('id')->primary();
-            $table->string('first_name');
-            $table->string('last_name')->nullable();
-            $table->string('username');
+            $table->string('name');
             $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->ulid('profile_id')->nullable();
             $table->string('profile_type')->nullable();
@@ -30,6 +29,8 @@ return new class extends Migration
             $table->string('postcode')->nullable();
             $table->string('status')->nullable();
             $table->rememberToken();
+            $table->foreignId('current_team_id')->nullable();
+            $table->string('profile_photo_path', 2048)->nullable();
             $table->timestamps();
         });
     }
