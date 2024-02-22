@@ -1,10 +1,10 @@
 {
   "menu": [
     {
-      "url": "/",
+      "url": "/page-home",
       "name": "Home",
       "icon": "menu-icon tf-icons mdi mdi-home-outline",
-      "slug": "pages-home"
+      "slug": "pages-page-home"
     },
     {
       "url": "/page-calendar",

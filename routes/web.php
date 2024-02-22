@@ -24,11 +24,26 @@ use App\Http\Controllers\authentications\RegisterBasic;
 */
 
 // Main Page Route
-Route::get('/page-calendar', [CalendarPage::class, 'index'])->name('pages-page-calendar');
-Route::get('/page-class', [ClassPage::class, 'index'])->name('pages-page-class');
-Route::get('/page-grade', [GradePage::class, 'index'])->name('pages-page-grade');
-Route::get('/page-assignment', [AssignmentPage::class, 'index'])->name('pages-page-assignment');
-Route::get('/page-attendance', [AttendancePage::class, 'index'])->name('pages-page-attendance');
+Route::group(['middleware' => 'auth:sanctum', 'verified'], function () {
+
+    Route::group(['middleware' => ['role:student']], function () {
+        Route::get('/student/page-home', [HomePage::class, 'index'])->name('pages-page-home');
+        Route::get('/student/page-calendar', [CalendarPage::class, 'index'])->name('pages-page-calendar');
+        Route::get('/student/page-class', [ClassPage::class, 'index'])->name('pages-page-class');
+        Route::get('/student/page-grade', [GradePage::class, 'index'])->name('pages-page-grade');
+        Route::get('/student/page-assignment', [AssignmentPage::class, 'index'])->name('pages-page-assignment');
+        Route::get('/student/page-attendance', [AttendancePage::class, 'index'])->name('pages-page-attendance');
+    });
+
+    Route::group(['middleware' => ['role:teacher']], function () {
+        Route::get('/teacher/home', [HomePage::class, 'index'])->name('teacher-page-home');
+        Route::get('/teacher/calendar', [CalendarPage::class, 'index'])->name('teacher-page-calendar');
+        Route::get('/teacher/class', [ClassPage::class, 'index'])->name('teacher-page-class');
+        Route::get('/teacher/grade', [GradePage::class, 'index'])->name('teacher-page-grade');
+        Route::get('/teacher/assignment', [AssignmentPage::class, 'index'])->name('teacher-page-assignment');
+        Route::get('/teacher/attendance', [AttendancePage::class, 'index'])->name('teacher-page-attendance');
+    });
+});
 
 // locale
 Route::get('lang/{locale}', [LanguageController::class, 'swap']);
@@ -39,7 +54,3 @@ Route::get('/pages/misc-error', [MiscError::class, 'index'])->name('pages-misc-e
 // authentication
 Route::get('/auth/login-basic', [LoginBasic::class, 'index'])->name('auth-login-basic');
 Route::get('/auth/register-basic', [RegisterBasic::class, 'index'])->name('auth-register-basic');
-
-Route::group(['middleware' => 'auth:sanctum', 'verified'], function () {
-    Route::get('/', [HomePage::class, 'index'])->name('pages-home');
-});

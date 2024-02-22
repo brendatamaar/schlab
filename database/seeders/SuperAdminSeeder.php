@@ -21,7 +21,7 @@ class SuperAdminSeeder extends Seeder
             'email' => 'superadmin@gmail.com',
             'password' => Hash::make('superadmin')
         ]);
-        $superAdmin->assignRole('Super Admin');
+        $superAdmin->assignRole('superadmin');
 
         $headmaster = Users::create([
             'name' => 'Headmaster',
@@ -29,7 +29,7 @@ class SuperAdminSeeder extends Seeder
             'email' => 'headmaster@gmail.com',
             'password' => Hash::make('headmaster')
         ]);
-        $headmaster->assignRole('Head Master');
+        $headmaster->assignRole('headmaster');
 
         // Creating Admin User
 
@@ -43,6 +43,6 @@ class SuperAdminSeeder extends Seeder
             'profile_id' => $adminProfile->id,
             'profile_type' => 'App\Models\Admins'
         ]);
-        $admin->assignRole('Admin');
+        $admin->assignRole('admin');
     }
 }

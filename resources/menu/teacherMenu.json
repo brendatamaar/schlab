@@ -1,0 +1,52 @@
+{
+  "menu": [
+    {
+      "url": "/teacher-home",
+      "name": "Home",
+      "icon": "menu-icon tf-icons mdi mdi-home-outline",
+      "slug": "teacher-page-home"
+    },
+    {
+      "url": "/teacher-calendar",
+      "icon": "menu-icon tf-icons mdi mdi-calendar-blank-outline",
+      "name": "Calendar",
+      "slug": "teacher-page-calendar"
+    },
+    {
+      "menuHeader": "Academic"
+    },
+    {
+      "url": "/teacher-gradebook",
+      "name": "Gradebook",
+      "icon": "menu-icon tf-icons mdi mdi-book-account-outline",
+      "slug": "teacher-page-gradebook"
+    },
+    {
+      "url": "/teacher-assignment",
+      "name": "Assignment",
+      "icon": "menu-icon tf-icons mdi mdi-clipboard-arrow-down-outline",
+      "slug": "teacher-page-assignment"
+    },
+    {
+      "url": "/teacher-report",
+      "name": "Report",
+      "icon": "menu-icon tf-icons mdi mdi-chart-scatter-plot-hexbin",
+      "slug": "teacher-page-report"
+    },
+    {
+      "menuHeader": "Setting"
+    },
+    {
+      "url": "/teacher/profile",
+      "name": "Profile",
+      "icon": "menu-icon tf-icons mdi mdi-account-outline",
+      "slug": "teacher-profile"
+    },
+    {
+      "url": "/teacher/logout",
+      "name": "Logout",
+      "icon": "menu-icon tf-icons mdi mdi-exit-to-app",
+      "slug": "teacher-logout"
+    }
+  ]
+}

@@ -23,8 +23,10 @@ class MenuServiceProvider extends ServiceProvider
     $verticalMenuData = json_decode($verticalMenuJson);
     $horizontalMenuJson = file_get_contents(base_path('resources/menu/horizontalMenu.json'));
     $horizontalMenuData = json_decode($horizontalMenuJson);
+    $teacherMenuJson = file_get_contents(base_path('resources/menu/teacherMenu.json'));
+    $teacherMenuData = json_decode($teacherMenuJson);
 
     // Share all menuData to all the views
-    \View::share('menuData', [$verticalMenuData, $horizontalMenuData]);
+    \View::share('menuData', [$verticalMenuData, $horizontalMenuData, $teacherMenuData]);
   }
 }

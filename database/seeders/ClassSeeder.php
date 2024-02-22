@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Classes;
 use App\Models\Students;
+use App\Models\Teachers;
 use App\Models\Users;
 use Illuminate\Support\Facades\Hash;
 
@@ -16,20 +17,17 @@ class ClassSeeder extends Seeder
      */
     public function run(): void
     {
-        $class = Classes::create([
-            'name' => 'Class 8A',
-            'class' => '8',
-            'subclass' => 'A',
-            'status' => '1'
-        ]);
+        $teacherProfile = Teachers::create(['joined' => '2023-12-31']);
 
         $teacher = Users::create([
             'name' => 'Teacher',
             // 'username' => 'teacher',
             'email' => 'teacher@gmail.com',
-            'password' => Hash::make('teacher')
+            'password' => Hash::make('teacher'),
+            'profile_id' => $teacherProfile->id,
+            'profile_type' => 'App\Models\Teachers'
         ]);
-        $teacher->assignRole('Teacher');
+        $teacher->assignRole('teacher');
 
 
         $parent = Users::create([
@@ -38,7 +36,20 @@ class ClassSeeder extends Seeder
             'email' => 'parent@gmail.com',
             'password' => Hash::make('parent')
         ]);
-        $parent->assignRole('Parent');
+        $parent->assignRole('parent');
+
+        $class = Classes::create([
+            'name' => 'Class 8A',
+            'level' => '8',
+            'sublevel' => 'A',
+            'guardian_id' => $teacher->id,
+            'description' => '',
+            'room_number' => 'Room 1 First Floor North Building',
+            'academic_year' => '2023/2024',
+            'capacity' => '50',
+            'current_enrollment' => '35',
+            'status' => 'active',
+        ]);
 
         $studentProfile = Students::create(['class_id' => $class->id, 'parent_id' => $parent->id]);
 
@@ -50,6 +61,6 @@ class ClassSeeder extends Seeder
             'profile_id' => $studentProfile->id,
             'profile_type' => 'App\Models\Students'
         ]);
-        $student->assignRole('Student');
+        $student->assignRole('student');
     }
 }
